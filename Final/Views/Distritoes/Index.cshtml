@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Final.Models.Distrito>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Crear Nuevo Distrito</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre_distrito)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_distrito)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.codigo_distrito">Editar</a> |
+
+                <a asp-action="Delete" asp-route-id="@item.codigo_distrito">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
